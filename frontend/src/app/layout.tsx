@@ -12,6 +12,8 @@ import { cn } from '@/utils/cn'
 
 import './globals.css'
 import ClientProviders from './providers'
+import { ThemeProvider } from './components/theme-provider'
+import SiteHeader from './components/site-header'
 
 export const viewport: Viewport = {
   themeColor: '#000000',
@@ -47,12 +49,21 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" className={cn('dark', GeistSans.variable, GeistMono.variable)}>
       <body>
+        <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange>
         <ClientProviders>
-          <TooltipProvider>{children}</TooltipProvider>
+          <TooltipProvider>
+            <SiteHeader></SiteHeader>
+            {children}
+            </TooltipProvider>
           <ToastConfig />
         </ClientProviders>
 
         {!!env.isProduction && <Analytics />}
+        </ThemeProvider>
       </body>
     </html>
   )

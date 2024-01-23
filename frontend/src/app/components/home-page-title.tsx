@@ -8,6 +8,7 @@ import vercelIcon from 'public/icons/vercel-button.svg'
 import inkathonLogo from 'public/images/inkathon-logo.png'
 
 import { cn } from '@/utils/cn'
+import { ThemeToggle } from '@/app/components/theme-button'
 
 interface StyledIconLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string
@@ -27,17 +28,17 @@ const StyledIconLink: React.FC<StyledIconLinkProps> = ({ className, children, ..
 )
 
 export const HomePageTitle: FC = () => {
-  const title = 'ink!athon'
-  const desc = 'Full-Stack DApp Boilerplate for ink! Smart Contracts'
-  const githubHref = 'https://github.com/scio-labs/inkathon'
-  const deployHref = 'https://github.com/scio-labs/inkathon#deployment-'
-  const telegramHref = 'https://t.me/inkathon'
+  const title = 'Zero Chat'
+  const desc = 'Video Chat powered by Aleph Zero'
+  // const githubHref = 'https://github.com/scio-labs/inkathon'
+  // const deployHref = 'https://github.com/scio-labs/inkathon#deployment-'
+  // const telegramHref = 'https://t.me/inkathon'
 
   return (
     <>
       <div className="flex flex-col items-center text-center font-mono">
         {/* Logo & Title */}
-        <Link
+        {/* <Link
           href={githubHref}
           target="_blank"
           // className="group"
@@ -45,11 +46,12 @@ export const HomePageTitle: FC = () => {
         >
           <Image src={inkathonLogo} priority width={60} alt="ink!athon Logo" />
           <h1 className="text-[2.5rem] font-black tracking-tighter">{title}</h1>
-        </Link>
+        </Link> */}
 
         {/* Tagline & Lincks */}
+        <h1 className="text-[2.5rem] font-black tracking-tighter">{title}</h1>
         <p className="mb-2 mt-4 text-gray-400">{desc}</p>
-        <p className="mb-8 text-xs text-gray-600">
+        {/* <p className="mb-8 text-xs text-gray-600">
           Built by{' '}
           <a
             href="https://zoma.dev"
@@ -75,11 +77,12 @@ export const HomePageTitle: FC = () => {
             Aleph Zero
           </a>
           .
-        </p>
+        </p> */}
 
         {/* Github & Vercel Buttons */}
         <div className="flex select-none space-x-2">
-          <StyledIconLink href={githubHref} target="_blank">
+          <ThemeToggle></ThemeToggle>
+          {/* <StyledIconLink href={githubHref} target="_blank">
             <Image src={githubIcon} priority height={32} alt="Github Repository" />
           </StyledIconLink>
           <StyledIconLink href={deployHref} target="_blank">
@@ -87,10 +90,10 @@ export const HomePageTitle: FC = () => {
           </StyledIconLink>
           <StyledIconLink href={telegramHref} target="_blank">
             <Image src={telegramIcon} priority height={32} alt="Telegram Group" />
-          </StyledIconLink>
+          </StyledIconLink> */}
         </div>
 
-        <div className="my-14 h-[1px] w-[5rem] max-w-full bg-gray-800" />
+        {/* <div className="my-14 h-[1px] w-[5rem] max-w-full bg-primary" /> */}
       </div>
     </>
   )
